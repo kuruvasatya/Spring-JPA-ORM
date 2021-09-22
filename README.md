@@ -40,7 +40,7 @@
 
 ## Configuring the class with table
 ```java
-SessionFactory factory = new AnnotationConfiguration()
+SessionFactory factory = new Configuration()
                                 .configure()
                                 .addAnnotatedClass(classname.class)
                                 .buildSessionFactry();
