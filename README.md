@@ -89,7 +89,9 @@ tran.commit();
 - @Inheritance(strategy = InheritanceType.Joined) => normalized tables, need joining
 - @DiscriminatorValue("name") => to change the name of child class table => placed over child classes
 
-## Methods to handle data
+## CRUD Methods in Hibernate
 - session.save(object) => saves object in the table
 - session.get(class, id) => gets data from the table
+- session.delete(object) => first get the object and delete that object
+- session.update(object) => first get the object and then update
 
