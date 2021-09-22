@@ -35,6 +35,7 @@
 3. Id
 4. Column(name="", length="", nullable=true/false, umique=true/fasle)
 5. Transient => attribute is not added to the table
+6. Embeddable => tells the table to include this columns in the depended table
 
 ## Configuring the class with table
 ```java
@@ -74,3 +75,6 @@ tran.commit();
   </session-factory>
 </hibernate-configuration>
 ```
+## Methods to handle data
+- session.save(object) => saves object in the table
+- session.get(class, id) => gets data from the table
