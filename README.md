@@ -40,7 +40,7 @@
 
 ## Configuring the class with table
 ```java
-SessionFactory factory = new AnnotationConfiguration()
+SessionFactory factory = new Configuration()
                                 .configure()
                                 .addAnnotatedClass(classname.class)
                                 .buildSessionFactry();
@@ -83,9 +83,11 @@ tran.commit();
 - @ManyToMany(mappedBy="", fetch = FetchType.Eager / FetchType.Lazy)
 
 ## Inheritance
-- @Inheritance(strategy = InheritanceType.Single_Table) => creates only table for parent and child
+- @Inheritance(strategy = InheritanceType.Single_Table) => creates only table for parent and child => placed over parent class
+- @DiscriminatorColumn(name="") => to change the discriminator value => placed over parent class
 - @Inheritance(strategy = InheritanceType.Table_Per_Class) => creates tables for all the parent and child classes, each child class has all the data in parent
 - @Inheritance(strategy = InheritanceType.Joined) => normalized tables, need joining
+- @DiscriminatorValue("name") => to change the name of child class table => placed over child classes
 
 ## Methods to handle data
 - session.save(object) => saves object in the table
