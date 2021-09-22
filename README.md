@@ -79,8 +79,8 @@ tran.commit();
 ## Relationships
 - OneToOne
 - OneToMany
-- ManyToOne(mappedBy="")
-- ManyToMany(mappedBy="")
+- ManyToOne(mappedBy="", fetch = FetchType.Eager / FetchType.Lazy)
+- ManyToMany(mappedBy="", fetch = FetchType.Eager / FetchType.Lazy)
 
 ## Methods to handle data
 - session.save(object) => saves object in the table
