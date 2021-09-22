@@ -36,7 +36,7 @@
 4. Column(name="", length="", nullable=true/false, umique=true/fasle)
 5. Transient => attribute is not added to the table
 6. Embeddable => tells the table to include this columns in the depended table
-7. ElementCollection => when a object has a collection of dependent objects
+7. ElementCollection(fetch = FetchType.Eager) => when a object has a collection of dependent objects
 
 ## Configuring the class with table
 ```java
@@ -77,10 +77,15 @@ tran.commit();
 </hibernate-configuration>
 ```
 ## Relationships
-- OneToOne
-- OneToMany
-- ManyToOne(mappedBy="", fetch = FetchType.Eager / FetchType.Lazy)
-- ManyToMany(mappedBy="", fetch = FetchType.Eager / FetchType.Lazy)
+- @OneToOne
+- @OneToMany
+- @ManyToOne(mappedBy="", fetch = FetchType.Eager / FetchType.Lazy)
+- @ManyToMany(mappedBy="", fetch = FetchType.Eager / FetchType.Lazy)
+
+## Inheritance
+- @Inheritance(strategy = InheritanceType.Single_Table) => creates only table for parent and child
+- @Inheritance(strategy = InheritanceType.Table_Per_Class) => creates tables for all the parent and child classes, each child class has all the data in parent
+- @Inheritance(strategy = InheritanceType.Joined) => normalized tables, need joining
 
 ## Methods to handle data
 - session.save(object) => saves object in the table
