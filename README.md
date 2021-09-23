@@ -34,9 +34,9 @@
 2. Table(name="")
 3. Id
 4. Column(name="", length="", nullable=true/false, umique=true/fasle)
-5. Transient => attribute is not added to the table
-6. Embeddable => tells the table to include this columns in the depended table
-7. ElementCollection(fetch = FetchType.Eager) => when a object has a collection of dependent objects
+5. Embeddable => tells the table to include this columns in the depended table
+8. ElementCollection(fetch = FetchType.Eager) => when a object has a collection of dependent objects
+
 
 ## Configuring the class with table
 ```java
@@ -94,4 +94,16 @@ tran.commit();
 - session.get(class, id) => gets data from the table
 - session.delete(object) => first get the object and delete that object
 - session.update(object) => first get the object and then update
+
+## HQL
+- Import Query from org.hibernate.query.Query instead of org.hibernate.Query
+   
+1. public int executeUpdate() is used to execute the update or delete query.
+2. public List list() returns the result of the ralation as a list.
+3. public Query setFirstResult(int rowno) specifies the row number from where record will be retrieved.
+4. public Query setMaxResult(int rowno) specifies the no. of records to be retrieved from the relation (table).
+5. public Query setParameter(int position, Object value) it sets the value to the JDBC style query parameter.
+6. public Query setParameter(String name, Object value) it sets the value to a named query parameter.
+7. public Object getSingleRestult() it is used for query which returns single value => aggregate functions 
+6. Transient => attribute is not added to the table
 
