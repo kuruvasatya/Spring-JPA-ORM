@@ -8,7 +8,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Laptop2")
+@Table(name="Laptop21")
 public class Laptop {
 	@Id
 	@Column(name="SerialNumber")
@@ -16,15 +16,6 @@ public class Laptop {
 	@Column(name="Name")
 	String name;
 		
-	@ManyToOne()
-	Student student;
-	
-	public Student getStudent() {
-		return student;
-	}
-	public void setStudent(Student student) {
-		this.student = student;
-	}
 	public int getSerNo() {
 		return serNo;
 	}

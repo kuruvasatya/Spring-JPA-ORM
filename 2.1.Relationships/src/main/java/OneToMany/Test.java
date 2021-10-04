@@ -26,23 +26,21 @@ public class Test {
 		
 		l1.setSerNo(1);
 		l1.setName("Hp pavilion");
-		l1.setStudent(s1);
-		
-		
+
 		l2.setSerNo(2);
 		l2.setName("Dell");
-		l2.setStudent(s1);
-		
-		
+			
 		l3.setSerNo(3);
 		l3.setName("assus");
-		l3.setStudent(s2);
 		
 		s1.setRollNo(5);
 		s1.setName("Ganesh");
+		s1.getLaptop().add(l1);
+		s1.getLaptop().add(l2);
 		
 		s2.setRollNo(6);
 		s2.setName("ripesh");
+		s2.getLaptop().add(l3);
 		
 		transaction = session.beginTransaction();
 		session.save(l1);

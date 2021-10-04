@@ -2,16 +2,18 @@ package OneToMany;
 
 import java.util.*;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Student2")
+@Table(name="Student21")
 public class Student {
 	@Id
 	@Column(name="Rollno")
@@ -19,7 +21,8 @@ public class Student {
 	@Column(name="Name")
 	String name;
 	
-	@OneToMany(mappedBy="student", fetch=FetchType.EAGER)
+	@OneToMany(targetEntity=Laptop.class, cascade = CascadeType.ALL)
+	@JoinColumn(referencedColumnName="rollno", name = "student_roll_no")
 	List<Laptop> laptop = new ArrayList<Laptop>();
 	
 	public int getRollNo() {
